@@ -1,0 +1,56 @@
+{
+  "name": "Restaurant",
+  "fields": [
+    {
+      "fieldName": "iDRestaurant",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "position",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "5"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "delivery",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "order",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210410221913",
+  "entityTableName": "restaurant",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["coopcycle"]
+}

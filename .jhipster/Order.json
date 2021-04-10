@@ -1,0 +1,66 @@
+{
+  "name": "Order",
+  "fields": [
+    {
+      "fieldName": "iDorder",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "orderNumber",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "max"],
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "client",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "delivery",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "restaurant",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210410221713",
+  "entityTableName": "order",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["coopcycle"]
+}

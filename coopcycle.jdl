@@ -1,0 +1,53 @@
+application {
+  config {
+    baseName coopcycle,
+    applicationType monolith,
+    packageName fr.polytech.info4,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angularX
+  }
+  entities *
+}
+
+entity Client {
+    IDclient Integer unique required,
+    name String required minlength(2) maxlength(16),
+    lastName String required minlength(2) maxlength(16),
+    address String required,
+    phoneNumber String minlength(10) maxlength(10) pattern(/[0-9]/)
+}
+
+entity Order {
+    IDorder Integer unique required,
+    orderNumber Integer required max(100),
+    content String required,
+    price Float required,
+    date LocalDate required
+}
+
+entity Delivery{
+    IDdelivery Integer unique required,
+    name String required,
+    lastName String required,
+    position String required
+}
+
+entity Restaurant{
+    IDRestaurant Integer unique required,
+    name String required,
+    position String required,
+    rating Integer min(0) max(5)
+}
+
+relationship OneToMany {
+   Client to Order
+   Client to Delivery
+   Delivery to Order
+}
+
+
+relationship ManyToMany{
+    Restaurant to Delivery
+    Restaurant to Order
+}

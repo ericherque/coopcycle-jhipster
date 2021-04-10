@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coopcycleApp.order.home.title">Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order" [routerLink]="['/order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coopcycleApp.order.home.createLabel">
+            Create a new Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orders?.length === 0">
+        <span jhiTranslate="coopcycleApp.order.home.notFound">No orders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orders && orders.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.order.iDorder">I Dorder</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.order.orderNumber">Order Number</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.order.content">Content</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.order.price">Price</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.order.date">Date</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.order.client">Client</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.order.delivery">Delivery</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders ;trackBy: trackId">
+                    <td><a [routerLink]="['/order', order.id, 'view']">{{ order.id }}</a></td>
+                    <td>{{ order.iDorder }}</td>
+                    <td>{{ order.orderNumber }}</td>
+                    <td>{{ order.content }}</td>
+                    <td>{{ order.price }}</td>
+                    <td>{{ order.date | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="order.client">
+                            <a [routerLink]="['/client', order.client?.id, 'view']" >{{ order.client?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="order.delivery">
+                            <a [routerLink]="['/delivery', order.delivery?.id, 'view']" >{{ order.delivery?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(order)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

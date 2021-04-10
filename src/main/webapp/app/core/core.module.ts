@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { NgJhipsterModule, translatePartialLoader, missingTranslationHandler, JhiConfigService, JhiLanguageService } from 'ng-jhipster';
-import locale from '@angular/common/locales/fr';
+import locale from '@angular/common/locales/en';
 
 import * as moment from 'moment';
 import { NgbDateAdapter, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -29,7 +29,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
       alertAsToast: false,
       alertTimeout: 5000,
       i18nEnabled: true,
-      defaultI18nLang: 'fr',
+      defaultI18nLang: 'en',
     }),
     TranslateModule.forRoot({
       loader: {
@@ -49,7 +49,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
     CookieService,
     {
       provide: LOCALE_ID,
-      useValue: 'fr',
+      useValue: 'en',
     },
     { provide: NgbDateAdapter, useClass: NgbDateMomentAdapter },
     DatePipe,

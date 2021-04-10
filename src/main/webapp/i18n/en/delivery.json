@@ -1,0 +1,28 @@
+{
+  "coopcycleApp": {
+    "delivery": {
+      "home": {
+        "title": "Deliveries",
+        "createLabel": "Create a new Delivery",
+        "createOrEditLabel": "Create or edit a Delivery",
+        "notFound": "No Deliveries found"
+      },
+      "created": "A new Delivery is created with identifier {{ param }}",
+      "updated": "A Delivery is updated with identifier {{ param }}",
+      "deleted": "A Delivery is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delivery {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery"
+      },
+      "iDdelivery": "I Ddelivery",
+      "name": "Name",
+      "lastName": "Last Name",
+      "position": "Position",
+      "order": "Order",
+      "client": "Client",
+      "restaurant": "Restaurant"
+    }
+  }
+}

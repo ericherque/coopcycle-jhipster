@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="order">
+            <h2><span jhiTranslate="coopcycleApp.order.detail.title">Order</span> {{ order.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coopcycleApp.order.iDorder">I Dorder</span></dt>
+                <dd>
+                    <span>{{ order.iDorder }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.order.orderNumber">Order Number</span></dt>
+                <dd>
+                    <span>{{ order.orderNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.order.content">Content</span></dt>
+                <dd>
+                    <span>{{ order.content }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.order.price">Price</span></dt>
+                <dd>
+                    <span>{{ order.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.order.date">Date</span></dt>
+                <dd>
+                    <span>{{ order.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.order.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="order.client">
+                        <a [routerLink]="['/client', order.client?.id, 'view']">{{ order.client?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.order.delivery">Delivery</span></dt>
+                <dd>
+                    <div *ngIf="order.delivery">
+                        <a [routerLink]="['/delivery', order.delivery?.id, 'view']">{{ order.delivery?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order', order.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

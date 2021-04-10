@@ -30,14 +30,18 @@
     "clientTheme": "none",
     "clientThemeVariant": "",
     "creationTimestamp": 1618092598976,
-    "testFrameworks": ["gatling", "protractor"],
+    "testFrameworks": [],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
-    "nativeLanguage": "fr",
-    "languages": ["fr", "hy", "zh-cn", "en", "my", "ru"],
-    "blueprints": []
-  }
+    "nativeLanguage": "en",
+    "languages": ["en", "fr"],
+    "blueprints": [],
+    "skipUserManagement": false,
+    "skipClient": false,
+    "skipServer": false
+  },
+  "entities": ["Client", "Order", "Delivery", "Restaurant"]
 }

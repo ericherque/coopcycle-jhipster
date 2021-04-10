@@ -1,0 +1,62 @@
+{
+  "name": "Client",
+  "fields": [
+    {
+      "fieldName": "iDclient",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "2",
+      "fieldValidateRulesMaxlength": "16"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "2",
+      "fieldValidateRulesMaxlength": "16"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "pattern"],
+      "fieldValidateRulesMinlength": "10",
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesPattern": "[0-9]"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "order"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "delivery"
+    }
+  ],
+  "changelogDate": "20210410221613",
+  "entityTableName": "client",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["coopcycle"]
+}
